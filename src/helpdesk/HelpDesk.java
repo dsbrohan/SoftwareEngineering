@@ -15,7 +15,8 @@ public class HelpDesk {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Login loginPage = new Login();
+        loginPage.setVisible(true);        
     }
     
 }

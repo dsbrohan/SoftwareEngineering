@@ -5,6 +5,15 @@
  */
 package helpdesk;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+
 /**
  *
  * @author Geni
@@ -14,6 +23,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    
     public Login() {
         initComponents();
     }
@@ -49,7 +59,18 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
+
         jButton1.setText("Login");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Register");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -106,11 +127,74 @@ public class Login extends javax.swing.JFrame {
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
+        //UserName
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        //Register button
+        Login loginPage = new Login();
+        Register registerPage = new Register();
+        registerPage.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        //Login Button
+        
+        //Create buffered Reader
+        BufferedReader br = null;
+        String line = "";
+        String csvSplitBy = ",";
+        
+        
+        //Read from login csv database
+        try{
+               br = new BufferedReader(new FileReader("login.csv"));
+               while((line = br.readLine()) != null){
+                   String[] data = line.split(csvSplitBy);
+                   if(data[0].equalsIgnoreCase(jTextField1.getText())){
+                       if(data[1].equals(jPasswordField1.getText())){
+                           
+                           //Write session
+                           Writer w = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("session.txt"),"utf-8"));
+                           w.append(data[0]);
+                           
+                        if(data[2].equals("employee")){
+                           EmployeeMain emp = new EmployeeMain();
+                           emp.setVisible(true);
+                        }else if(data[2].equals("admin")){
+                            AdminMain adm = new AdminMain();
+                            adm.setVisible(true);
+                        }else{
+                            UserMain usr = new UserMain();
+                            usr.setVisible(true);
+                        }
+                        //Close Login Gui
+                        super.setVisible(false);
+                       }
+                   }
+                   
+               }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+		if (br != null) {
+			try {
+				br.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+        //Password
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     /**
      * @param args the command line arguments
