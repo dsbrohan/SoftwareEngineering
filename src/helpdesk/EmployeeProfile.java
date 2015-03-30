@@ -72,8 +72,16 @@ public class EmployeeProfile extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Incident Management", "Problem Management", "Network Operations", "DBA Team", "Account Manager", "Facilities", "Developer", "Fraud", "Server Systems", " " }));
 
         jButton1.setText("Update Info");
+        //not done
 
         jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dispose();
+            }
+        });
+
+        //done
 
         jLabel8.setText(") - ");
 

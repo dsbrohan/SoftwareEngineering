@@ -90,56 +90,121 @@ public class AdminMain extends javax.swing.JFrame {
         jLabel4.setText("All Incidents");
 
         jButton1.setText("Assign Incident");
+        //not done
 
         jButton2.setText("Review Incident");
+        //not done
 
         jButton3.setText("Open Problem Ticket");
+        //not done
 
         jButton4.setText("Open Incident");
+        //not done
 
         jLabel5.setText("User List");
 
         jButton5.setText("Delete User");
+        //not done
 
         jButton6.setText("Edit Users Profile");
+        //not done
 
         jLabel6.setText("Employee List");
 
         jButton7.setText("Delete Employee");
+        //not done
 
         jButton8.setText("Edit Employee Profile");
+        //not done
 
         jButton9.setText("Create New Employee");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewEmployee emp = new NewEmployee();
+                emp.setVisible(true);
+            }
+        });
+
+        
+        //done
 
         jButton10.setText("Create New User");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Register register = new Register();
+                register.setVisible(true);
+            }
+        });
+
+        
+        //done
 
         jButton11.setText("New Problem Ticket");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Problem problem = new Problem();
+                problem.setVisible(true);
+            }
+        });
+
+        //done
 
         jButton12.setText("New Incident");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Incident incident = new Incident();
+                incident.setVisible(true);
+            }
+        });
+
+        
+        //done
 
         jButton13.setText("Exit");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dispose();
+                System.exit(0);
+            }
+        });
+
+        //not done
 
         jLabel7.setText("Fraud Queue");
 
         jScrollPane7.setViewportView(jList7);
 
         jButton14.setText("Open Fraud");
+        //not done
 
         jButton15.setText("Delete Problem");
+        //not done
 
         jButton16.setText("Delete Incident");
+        //not done
 
         jButton17.setText("Delete Fraud");
+        //not done
 
         jLabel8.setText("Escalated Incidents");
 
         jScrollPane1.setViewportView(jList1);
 
         jButton18.setText("Open Incident");
+        //not done
 
         jButton19.setText("Delete Incident");
+        //not done
 
         jButton20.setText("Create New Admin");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewAdmin admin = new NewAdmin();
+                admin.setVisible(true);
+            }
+        });
+
+        //done
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

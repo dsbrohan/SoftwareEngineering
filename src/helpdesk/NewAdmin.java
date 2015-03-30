@@ -48,6 +48,7 @@ public class NewAdmin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Register");
+        //not done
 
         jLabel7.setText("(");
 
@@ -80,6 +81,13 @@ public class NewAdmin extends javax.swing.JFrame {
         jLabel5.setText("Email:");
 
         jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+               dispose();
+            }
+        });
+
+        //done
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

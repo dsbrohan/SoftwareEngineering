@@ -51,16 +51,43 @@ public class UserMain extends javax.swing.JFrame {
         jLabel2.setText("My Closed Incidents");
 
         jButton1.setText("Review Open Incident");
+        //not done
 
         jButton3.setText("Escalate Incident");
+        //not done
 
         jButton4.setText("Review Closed Incident");
+        //not done
 
         jButton5.setText("Create New Incident");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Incident incident = new Incident();
+                incident.setVisible(true);
+            }
+        });
+
+        //done
 
         jButton6.setText("Edit Profile");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserProfile user = new UserProfile();
+                user.setVisible(true);
+            }
+        });
+
+        //done
 
         jButton7.setText("Exit");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dispose();
+                System.exit(0);
+            }
+        });
+
+        //not done
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

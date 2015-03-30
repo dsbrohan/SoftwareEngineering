@@ -43,24 +43,52 @@ public class EmployeeMain extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton7.setText("Exit");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dispose();
+                System.exit(0);
+            }
+        });
+
+        //not done
 
         jScrollPane2.setViewportView(jList2);
 
         jLabel2.setText("Department Queue");
 
         jButton1.setText("Open Incident");
+        //not done
 
         jLabel1.setText("My Work Queue");
 
         jButton4.setText("Accept ticket");
+        //not done
 
         jButton6.setText("Edit Profile");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmployeeProfile empPro = new EmployeeProfile();
+                empPro.setVisible(true);
+            }
+        });
+        //done
+
 
         jButton5.setText("Create New Incident");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Incident incident = new Incident();
+                incident.setVisible(true);
+            }
+        });
+
+        
+        //not done
 
         jScrollPane3.setViewportView(jList3);
 
         jButton2.setText("Open Incident");
+        //not done
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

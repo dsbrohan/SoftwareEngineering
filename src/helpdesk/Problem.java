@@ -59,18 +59,29 @@ public class Problem extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jList1);
 
         jButton1.setText("Remove Incident");
+        //not done
 
         jScrollPane6.setViewportView(jList6);
 
         jLabel4.setText("All Incidents");
 
         jButton2.setText("Relate to Problem");
+        //not done
 
         jButton3.setText("Update");
+        //not done
 
         jButton4.setText("Close");
+        //not done
 
         jButton5.setText("Cancel");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+               dispose();
+            }
+        });
+
+        //done
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

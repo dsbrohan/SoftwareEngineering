@@ -65,8 +65,17 @@ public class UserProfile extends javax.swing.JFrame {
         jLabel5.setText("Change Company");
 
         jButton1.setText("Update Info");
+        //not done
 
         jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dispose();
+            }
+        });
+
+        //done
+        
 
         jCheckBox1.setText("Change Password");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {

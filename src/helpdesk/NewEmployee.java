@@ -58,6 +58,7 @@ public class NewEmployee extends javax.swing.JFrame {
         jLabel6.setText("Phone:");
 
         jButton1.setText("Register");
+        //not done
 
         jLabel7.setText("(");
 
@@ -86,6 +87,13 @@ public class NewEmployee extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Incident Management", "Problem Management", "Network Operations", "DBA Team", "Account Manager", "Facilities", "Developer", "Fraud", "Server Systems", " " }));
 
         jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+               dispose();
+            }
+        });
+
+        //done
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

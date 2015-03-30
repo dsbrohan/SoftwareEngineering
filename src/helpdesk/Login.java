@@ -171,7 +171,7 @@ public class Login extends javax.swing.JFrame {
                             usr.setVisible(true);
                         }
                         //Close Login Gui
-                        super.setVisible(false);
+                        dispose();
                        }
                    }
                    

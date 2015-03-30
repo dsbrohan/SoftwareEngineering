@@ -74,10 +74,19 @@ public class Incident extends javax.swing.JFrame {
         jTextField4.setText("Group Recomendation");
 
         jButton1.setText("Update");
+        //not done
 
         jButton2.setText("Resolve Incident");
+        //not done
 
         jButton3.setText("Cancel");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+               dispose();
+            }
+        });
+
+        //done
 
         jCheckBox2.setText("Flag as Problem");
 
