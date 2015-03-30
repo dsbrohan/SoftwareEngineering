@@ -1,4 +1,5 @@
-inhsuper,P0x4j987#,admin
-admin,admin,user
-andrew,nopass,employee
-superadmin,superadmin,admin
+Username,Password,Type,Email,Phone1,Phone2,Phone3,SLA,Company,Group
+inhsuper,P0x4j987#,admin,,,,,,,
+admin,admin,user,,,,,,,
+andrew,nopass,employee,,,,,,,
+superadmin,superadmin,admin,,,,,,,
