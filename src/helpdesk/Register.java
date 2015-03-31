@@ -55,9 +55,9 @@ public class Register extends javax.swing.JFrame {
 
         jLabel1.setText("Name");
 
-        jLabel2.setText("First:");
+        jLabel2.setText("Username:");
 
-        jLabel3.setText("Last:");
+        jLabel3.setText("Password:");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -103,14 +103,15 @@ public class Register extends javax.swing.JFrame {
         jButton1.setText("Register");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                String[] info = new String[7];
-                info[0] = jTextField1.getText();
-                info[1] = jTextField2.getText();
-                info[2] = jTextField3.getText();
-                info[3] = jTextField4.getText();
-                info[4] = jTextField5.getText();
-                info[5] = jTextField6.getText();
-                info[6] = jTextField7.getText();
+                String[] info = new String[8];
+                info[0] = jTextField1.getText();//first name
+                info[1] = jTextField2.getText();//last name
+                info[2] = jTextField3.getText();//email
+                info[3] = jTextField4.getText();//phone1
+                info[4] = jTextField5.getText();//phone2
+                info[5] = jTextField6.getText();//phone3
+                info[6] = jTextField7.getText();//Company
+                info[7] = SLA.getSelectedItem().toString();
                 File file = new File("login.csv");
                 FileWriter writer = null;
                 try{
@@ -123,7 +124,7 @@ public class Register extends javax.swing.JFrame {
                   
                 }
                 //Still need to fetch user type from sessions and append after info1
-                String newinfo = info[0] + "," + info[1] + "," + "" + "," + info[2] + "," + info[3] + "," + info[4] + "," + info[5] + "," + info[6] ;
+                String newinfo = info[0] + "," + info[1] + "," + "user" + "," + info[2] + "," + info[3] + "," + info[4] + "," + info[5] + "," + info[7] + "," + info[6] + "," + "null" ;
                 try{
                   writer.append("\n" + newinfo); 
                   writer.close();  
