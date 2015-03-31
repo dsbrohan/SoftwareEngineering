@@ -1,14 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package helpdesk;
 
-/**
- *
- * @author Geni
- */
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 public class Register extends javax.swing.JFrame {
 
     /**
@@ -56,7 +58,6 @@ public class Register extends javax.swing.JFrame {
         jLabel2.setText("First:");
 
         jLabel3.setText("Last:");
-
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -100,8 +101,41 @@ public class Register extends javax.swing.JFrame {
         });
 
         jButton1.setText("Register");
-        //not done
-
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                String[] info = new String[7];
+                info[0] = jTextField1.getText();
+                info[1] = jTextField2.getText();
+                info[2] = jTextField3.getText();
+                info[3] = jTextField4.getText();
+                info[4] = jTextField5.getText();
+                info[5] = jTextField6.getText();
+                info[6] = jTextField7.getText();
+                File file = new File("login.csv");
+                FileWriter writer = null;
+                try{
+                  writer = new FileWriter("login.csv", true);
+                }
+                catch(FileNotFoundException ex){
+                  Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                catch(IOException ioex){
+                  
+                }
+                //Still need to fetch user type from sessions and append after info1
+                String newinfo = info[0] + "," + info[1] + "," + "" + "," + info[2] + "," + info[3] + "," + info[4] + "," + info[5] + "," + info[6] ;
+                try{
+                  writer.append("\n" + newinfo); 
+                  writer.close();  
+                }
+                catch(IOException e){
+                
+                }
+                
+                dispose();
+                //not done
+            }
+        });
         jButton2.setText("Cancel");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

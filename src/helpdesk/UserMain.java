@@ -1,14 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package helpdesk;
 
-/**
- *
- * @author Geni
- */
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class UserMain extends javax.swing.JFrame {
 
     /**
@@ -82,6 +82,14 @@ public class UserMain extends javax.swing.JFrame {
         jButton7.setText("Exit");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+                try{
+                  File file = new File("session.csv");
+                  file.delete();
+                }
+                catch(Exception ex){
+                  
+                }
+
                 dispose();
                 System.exit(0);
             }
