@@ -20,7 +20,6 @@ import java.util.logging.Logger;
  */
 public class Login extends javax.swing.JFrame {
 
-    String username = "";
     
     public Login() {
         initComponents();
@@ -144,10 +143,10 @@ public class Login extends javax.swing.JFrame {
         BufferedReader br = null;
         String line = "";
         String csvSplitBy = ",";
-        File file = new File ("session.txt");
+        File file = new File ("session.csv");
         PrintWriter printWriter = null;
         try {
-            printWriter = new PrintWriter ("session.txt");
+            printWriter = new PrintWriter ("session.csv");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -158,12 +157,12 @@ public class Login extends javax.swing.JFrame {
                br = new BufferedReader(new FileReader("login.csv"));
                while((line = br.readLine()) != null){
                    String[] data = line.split(csvSplitBy);
-                   username = data[0];
+                   
                    if(data[0].equalsIgnoreCase(jTextField1.getText())){
                        if(data[1].equals(jPasswordField1.getText())){
                            
                            //Write session
-                           printWriter.println(username);
+                           printWriter.println(data[0]+","+data[2]+","+data[3]+","+data[4]+","+data[5]+","+data[6]+","+data[7]+","+data[8]+","+data[9]);
                            printWriter.close();
                            
                         if(data[2].equals("employee")){
