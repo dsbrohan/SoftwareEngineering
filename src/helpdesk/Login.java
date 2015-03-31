@@ -6,13 +6,13 @@
 package helpdesk;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,9 +20,7 @@ import java.io.Writer;
  */
 public class Login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
+    String username = "";
     
     public Login() {
         initComponents();
@@ -146,19 +144,27 @@ public class Login extends javax.swing.JFrame {
         BufferedReader br = null;
         String line = "";
         String csvSplitBy = ",";
-        
+        File file = new File ("session.txt");
+        PrintWriter printWriter = null;
+        try {
+            printWriter = new PrintWriter ("session.txt");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         
         //Read from login csv database
         try{
                br = new BufferedReader(new FileReader("login.csv"));
                while((line = br.readLine()) != null){
                    String[] data = line.split(csvSplitBy);
+                   username = data[0];
                    if(data[0].equalsIgnoreCase(jTextField1.getText())){
                        if(data[1].equals(jPasswordField1.getText())){
                            
                            //Write session
-                           Writer w = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("session.txt"),"utf-8"));
-                           w.append(data[0]);
+                           printWriter.println(username);
+                           printWriter.close();
                            
                         if(data[2].equals("employee")){
                            EmployeeMain emp = new EmployeeMain();
