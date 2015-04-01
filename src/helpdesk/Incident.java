@@ -1,14 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package helpdesk;
 
-/**
- *
- * @author Geni
- */
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 public class Incident extends javax.swing.JFrame {
 
     /**
@@ -29,6 +31,29 @@ public class Incident extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        BufferedReader br = null;
+        String line = "";
+        String csvSplitBy = ",";
+        try{
+        br = new BufferedReader(new FileReader("incident.csv"));
+        int number = 0;
+        String num = "";
+               while((line = br.readLine()) != null){
+                   String[] data = line.split(csvSplitBy);
+                   num = data[0];
+               }
+               if (!num.equals("Incident#")){
+                  number = Integer.parseInt(num);
+                  number++;
+               }
+               else{
+                  number++;
+               }
+               jTextField1.setText(String.valueOf(number));
+        }
+        catch(IOException ex){
+            System.out.println("IO Exception");
+        } 
         jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -48,6 +73,8 @@ public class Incident extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jCheckBox2 = new javax.swing.JCheckBox();
         jTextField5 = new javax.swing.JTextField();
+        //Delete this block!!!!!!!!!!!!!!!!!!!!!!!!!
+        ////////////////////////////////////////////
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,6 +101,58 @@ public class Incident extends javax.swing.JFrame {
         jTextField4.setText("Group Recomendation");
 
         jButton1.setText("Update");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+               String newInfo = "";
+               String subjectAndNotes = "";
+               newInfo = jTextField1.getText() + "," + "" + "," + jTextField2.getText() + "," + jFormattedTextField1.getText() + "," + jFormattedTextField2.getText() + "," + jTextField5.getText();
+               subjectAndNotes = jTextField1.getText() + "," + jTextField3.getText() + "," + jTextArea1.getText();
+               File file = new File("incident.csv");
+               File file2 = new File("notes.csv");
+               FileWriter writer1 = null;
+               FileWriter writer2 = null;
+               try{
+                 writer1 = new FileWriter("incident.csv", true);
+               }
+               catch(FileNotFoundException ex){
+                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+               }
+               catch(IOException ioex){
+                  
+               } 
+               try{
+                  writer1.append("\n" + newInfo); 
+                  writer1.close();
+              
+               } 
+             
+                catch(IOException e){
+                
+                }
+                ////
+                try{
+                 writer2 = new FileWriter("notes.csv", true);
+               }
+               catch(FileNotFoundException ex){
+                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+               }
+               catch(IOException ioex){
+                  
+               } 
+               try{
+                  writer2.append("\n" + subjectAndNotes); 
+                  writer2.close();
+              
+               } 
+             
+                catch(IOException e){
+                
+                }
+
+               dispose();
+            }
+        });
+
         //not done
 
         jButton2.setText("Resolve Incident");
